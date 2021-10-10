@@ -1,0 +1,13 @@
+.build-header {
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .repo-title {
+        margin: 0;
+    }
+    .buttons {
+        display: flex;
+        gap: 8px;
+    }
+}

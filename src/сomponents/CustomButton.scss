@@ -1,12 +1,21 @@
 @import '../global.scss';
 .custom-button {
     display: flex;
+    gap: 5px;
     align-items: center;
     border: none;
     height: 36px;
-    padding: 0px 20px;
+    padding: 0px 16px;
     border-radius: 5px;
     cursor: pointer;
+    img {
+        width: 12px;
+    }
+    .title {
+        @media screen and (max-width: $sm-width) {
+            display: none;
+        }
+    }
 }
 
 .primary {
@@ -19,7 +28,7 @@
     }
     &:disabled {
         background-color: #e6e6e6;
-        // color: $secondary
+        color: $secondary
     }
 }
 
@@ -33,6 +42,6 @@
     }
     &:disabled {
         background-color: #e6e6e6;
-        // color: $secondary
+        color: $secondary
     }
 }

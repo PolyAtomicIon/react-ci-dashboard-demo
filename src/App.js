@@ -1,11 +1,17 @@
 import './App.scss';
 import CommitCard from './сomponents/CommitCard.js'
 import Footer from './сomponents/Footer.js'
-import CustomButton from './сomponents/CustomButton.js'
+
+import BuildHeader from './сomponents/BuildHeader.js'
 
 function App(props) {
     return (
       <>
+
+      <BuildHeader 
+        title='Awesomerepo/opo'
+      />
+
       <div className="cards">
         <CommitCard 
           id="3456" 
@@ -35,15 +41,6 @@ function App(props) {
           time="1 h 20 min" 
         />
       </div>
-  
-      <p
-        className="ml-1"
-      >
-        <CustomButton 
-          title="Submit"
-        />
-      </p>
-
       <Footer />
       </>
     );
