@@ -4,9 +4,11 @@ import CustomButton from './CustomButton'
 import play from '../assets/icons/play.png'
 import settings from '../assets/icons/settings.png'
 
+import {Link} from "react-router-dom";
+
 function BuildHeader(props) {
     return ( 
-        <div
+        <header
             className='build-header'
         >
             <h1 className="repo-title">{props.title}</h1>
@@ -16,12 +18,14 @@ function BuildHeader(props) {
                     icon={play}
                     style='secondary'
                 />
-                <CustomButton 
-                    style='secondary'
-                    icon={settings}
-                />
+                <Link to="/settings">
+                    <CustomButton 
+                        style='secondary'
+                        icon={settings}
+                    />
+                </Link>
             </div>
-        </div>
+        </header>
     );
   }
 

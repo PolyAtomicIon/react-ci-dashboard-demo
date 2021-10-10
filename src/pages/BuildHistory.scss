@@ -1,8 +1,11 @@
-.cards {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px 0;
+.build-history {
+    height: 100vh;
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 0;
+    }
 }

@@ -1,0 +1,17 @@
+@import '../global.scss';
+.settings {
+    height: 100vh;
+    background: lightcoral;
+    .header {
+        font-size: 24px;
+        color: $secondary;
+        margin-bottom: 12px;
+    }
+    .form {
+        margin: 12px 0;
+    }
+    .buttons {
+        display: flex;
+        gap: 8px;
+    }
+}

@@ -1,14 +1,13 @@
 import './BuildHistory.scss';
 import CommitCard from '../сomponents/CommitCard.js'
 import CustomButton from '../сomponents/CustomButton.js'
-import Footer from '../сomponents/Footer.js'
 
 import BuildHeader from '../сomponents/BuildHeader.js'
 
 function BuildHistory(props) {
     return (
       <>
-        <main className="wrapper">
+        <main className="wrapper build-history">
             <BuildHeader 
                 title='Awesomedfsdfrepo/oposdfsfsfsdfsdfsdfsdfsdfsdf'
             />
@@ -51,8 +50,6 @@ function BuildHistory(props) {
                 otherStyleOptions="sm-full-width"
             />
         </main>
-
-      <Footer />
       </>
     );
   }

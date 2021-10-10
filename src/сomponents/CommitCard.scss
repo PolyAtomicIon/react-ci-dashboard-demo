@@ -39,7 +39,6 @@
         .commit-title {
             .commit-id {
                 text-decoration: none;
-                color: $green;
                 font-weight: bold;
             }
             @media screen and (max-width: $sm-width) {

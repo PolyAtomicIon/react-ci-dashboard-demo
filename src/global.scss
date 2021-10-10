@@ -33,10 +33,23 @@ $sm-width: 576px;
 $primary: #F2C200;
 $secondary: #b2b2b2;
 $green: #00B341;
+$red: #FF3333;
 $black: #000000;
 $light-bg: #F0F2F3;
 .text-grey {
     color: $secondary;
+}
+
+.text-green {
+    color: $green;
+}
+
+.text-primary {
+    color: $primary;
+}
+
+.text-red {
+    color: $red;
 }
 
 .m {
@@ -49,5 +62,12 @@ $light-bg: #F0F2F3;
         &-1 {
             margin-right: 5px;
         }
+    }
+}
+
+.wrapper {
+    padding: 8px 100px;
+    @media screen and (max-width: $sm-width) {
+        padding: 12px 16px;
     }
 }

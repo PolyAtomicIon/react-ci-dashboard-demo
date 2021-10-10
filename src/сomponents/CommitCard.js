@@ -8,19 +8,36 @@ import fail from '../assets/icons/fail.png';
 import clock from '../assets/icons/clock.png';
 
 let commitStatus = {
-    done, fail, 
-    'pending': clock
+    'done': {
+        icon: done,
+        color: 'green'
+    }, 
+    'fail': {
+        icon: fail,
+        color: 'red'
+    }, 
+    'pending': {
+        icon: clock,
+        color: 'primary'
+    }
 }
 
 function CommitCard(props) {
     return ( 
         <div className="commit">
             <div className="commit-status">
-                <img src={commitStatus[props.commitStatus || 'done']} alt="" />
+                <img src={commitStatus[props.commitStatus || 'done'].icon} alt="" />
             </div>
             <div className="main-info">
                 <div className="commit-title">
-                    <a href={''} className="commit-id"> #{props.id} </a> 
+                    <a 
+                        href={''} 
+                        className={
+                            `commit-id 
+                            text-${commitStatus[props.commitStatus || 'done'].color}
+                        `}> 
+                        #{props.id} 
+                    </a> 
                     {props.title}
                 </div>
                 <div className="commit-details">
