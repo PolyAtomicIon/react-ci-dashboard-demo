@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'YS Text';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    src: url(//yastatic.net/s3/home/fonts/ys/1/text-regular.woff2) format('woff2'), url(//yastatic.net/s3/home/fonts/ys/1/text-regular.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'YS Text';
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    src: url(//yastatic.net/s3/home/fonts/ys/1/text-medium.woff2) format('woff2'), url(//yastatic.net/s3/home/fonts/ys/1/text-medium.woff) format('woff')
+}
+
+@font-face {
+    font-family: 'YS Text';
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    src: url(//yastatic.net/s3/home/fonts/ys/1/text-bold.woff2) format('woff2'), url(//yastatic.net/s3/home/fonts/ys/1/text-bold.woff) format('woff')
+}
+
+.font_loaded body {
+    font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-feature-settings: 'liga', 'kern';
+    -moz-font-feature-settings: 'liga', 'kern';
+    font-feature-settings: 'liga', 'kern'
+}
+
+$sm-width: 576px;
+$primary: #F2C200;
+$secondary: #b2b2b2;
+$green: #00B341;
+$black: #000000;
+$light-bg: #F0F2F3;
+.text-grey {
+    color: $secondary;
+}
+
+.m {
+    &l {
+        &-1 {
+            margin-left: 5px;
+        }
+    }
+    &r {
+        &-1 {
+            margin-right: 5px;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+@import '../global.scss';
+.custom-button {
+    display: flex;
+    align-items: center;
+    border: none;
+    height: 36px;
+    padding: 0px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: $primary;
+    &:hover {
+        background-color: #f2c32f;
+    }
+    &:focus {
+        outline-color: #b38f20;
+    }
+    &:disabled {
+        background-color: #e6e6e6;
+        // color: $secondary
+    }
+}
+
+.secondary {
+    background-color: $light-bg;
+    &:hover {
+        background-color: #dbdbdb;
+    }
+    &:focus {
+        outline-color: #b3b3b3;
+    }
+    &:disabled {
+        background-color: #e6e6e6;
+        // color: $secondary
+    }
+}

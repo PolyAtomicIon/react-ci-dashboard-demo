@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import CommitCard from './сomponents/CommitCard.js'
+import Footer from './сomponents/Footer.js'
+import CustomButton from './сomponents/CustomButton.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+function App(props) {
+    return (
+      <>
+      <div className="cards">
+        <CommitCard 
+          id="3456" 
+          title="lorem ipsum dolor sit amet" 
+          branchName="master"
+          commitId="98fd45"
+          author="Lex Lop" 
+          date="10.002.02" 
+          time="1 h 20 min" 
+        />
+        <CommitCard 
+          id="3456" 
+          title="lorem ipsum dolor sit amet" 
+          branchName="master"
+          commitId="98fd45"
+          author="Lex Lop" 
+          date="10.002.02" 
+          time="1 h 20 min" 
+        />
+        <CommitCard 
+          id="3456" 
+          title="lorem ipsum dolor sit amet" 
+          branchName="master"
+          commitId="98fd45"
+          author="Lex Lop" 
+          date="10.002.02" 
+          time="1 h 20 min" 
+        />
+      </div>
+  
+      <p
+        className="ml-1"
+      >
+        <CustomButton 
+          title="Submit"
+        />
+      </p>
+
+      <Footer />
+      </>
+    );
+  }
 
 export default App;
