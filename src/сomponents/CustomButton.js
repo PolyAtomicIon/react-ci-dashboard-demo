@@ -7,11 +7,15 @@ const defaultProps = {
 function CustomButton(props) {
     return ( 
         <button 
-            className={`custom-button ${props.style || defaultProps.style}`}
+            className={
+                `custom-button 
+                ${props.style || defaultProps.style}
+                ${props.otherStyleOptions || ''}
+            `}
             disabled={props.disabled || false}
         >
             { props.icon && <img src={props.icon} alt="" /> }
-            { props.title && <span className="title">{props.title}</span> }
+            { props.title && <span className={props.icon ? 'title-with-icon' : 'title'}>{props.title}</span> }
         </button>
     );
   }

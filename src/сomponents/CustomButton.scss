@@ -11,7 +11,7 @@
     img {
         width: 12px;
     }
-    .title {
+    .title-with-icon {
         @media screen and (max-width: $sm-width) {
             display: none;
         }
@@ -30,6 +30,7 @@
         background-color: #e6e6e6;
         color: $secondary
     }
+    text-align: center;
 }
 
 .secondary {
@@ -43,5 +44,16 @@
     &:disabled {
         background-color: #e6e6e6;
         color: $secondary
+    }
+}
+
+.sm-full-width {
+    @media screen and (max-width: $sm-width) {
+        text-align: center;
+        width: 100%;
+        .title {
+            width: 100%;
+            text-align: center;
+        }
     }
 }
