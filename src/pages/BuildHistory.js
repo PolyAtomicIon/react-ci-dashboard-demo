@@ -31,6 +31,7 @@ function BuildHistory(props) {
                     author="Lex Lop" 
                     date="10.002.02" 
                     time="1 h 20 min" 
+                    commitStatus="fail"
                 />
                 <CommitCard 
                     id="3456" 
@@ -40,6 +41,7 @@ function BuildHistory(props) {
                     author="Lex Lop" 
                     date="10.002.02" 
                     time="1 h 20 min" 
+                    commitStatus="pending"
                 />
             </div>
 

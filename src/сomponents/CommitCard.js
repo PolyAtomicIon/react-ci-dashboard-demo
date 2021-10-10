@@ -4,12 +4,19 @@ import stopwatch from '../assets/icons/stopwatchLight.png';
 import user from '../assets/icons/userLight.png';
 import codeCommit from '../assets/icons/codeCommitLight.png';
 import done from '../assets/icons/done.png';
+import fail from '../assets/icons/fail.png';
+import clock from '../assets/icons/clock.png';
+
+let commitStatus = {
+    done, fail, 
+    'pending': clock
+}
 
 function CommitCard(props) {
     return ( 
         <div className="commit">
             <div className="commit-status">
-                <img src={done} alt="" />
+                <img src={commitStatus[props.commitStatus || 'done']} alt="" />
             </div>
             <div className="main-info">
                 <div className="commit-title">
