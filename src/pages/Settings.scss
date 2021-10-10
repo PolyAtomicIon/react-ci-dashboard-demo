@@ -1,7 +1,6 @@
 @import '../global.scss';
 .settings {
     height: 100vh;
-    background: lightcoral;
     .header {
         font-size: 24px;
         color: $secondary;
@@ -9,9 +8,31 @@
     }
     .form {
         margin: 12px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        label {
+            display: flex;
+            flex-direction: column;
+            input[type=text],
+            input[type=number] {
+                margin-top: 8px;
+                box-sizing: border-box;
+                width: 100%;
+                max-width: 500px;
+                border-radius: 5px;
+                height: 36px;
+                border: 2px $secondary solid;
+                &:focus {}
+            }
+        }
     }
     .buttons {
         display: flex;
         gap: 8px;
+        @media screen and (max-width: $sm-width) {
+            flex-direction: column;
+            gap: 12px;
+        }
     }
 }

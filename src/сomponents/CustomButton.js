@@ -13,6 +13,7 @@ function CustomButton(props) {
                 ${props.otherStyleOptions || ''}
             `}
             disabled={props.disabled || false}
+            onClick={() => props?.eventToCall()} 
         >
             { props.icon && <img src={props.icon} alt="" /> }
             { props.title && <span className={props.icon ? 'title-with-icon' : 'title'}>{props.title}</span> }
