@@ -37,7 +37,7 @@ function BuildHistory(props) {
 
     return (
       <>
-        <main className="wrapper build-history">
+        <div className="wrapper build-history">
             <BuildHeader 
                 title='Awesomedfsdfrepo/oposdfsfsfsdfsdfsdfsdfsdfsdf'
             />
@@ -67,7 +67,7 @@ function BuildHistory(props) {
                 backgroundColor="secondary"
                 otherStyleOptions="sm-full-width"
             />
-        </main>
+        </div>
       </>
     );
   }

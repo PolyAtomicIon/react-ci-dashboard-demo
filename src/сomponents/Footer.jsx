@@ -2,7 +2,7 @@ import './Footer.scss'
 
 function Footer(props) {
     return ( 
-        <div className="footer">
+        <footer className="footer">
             <div className="links">
                 <a href="">Support</a>
                 <a href="">Learning</a>
@@ -11,7 +11,7 @@ function Footer(props) {
             <div className="brand">
                 @2020 Your Name
             </div>
-        </div>
+        </footer>
     );
   }
 

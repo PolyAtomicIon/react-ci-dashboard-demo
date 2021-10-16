@@ -42,6 +42,7 @@ export default function Settings(props) {
     }
     const cancel = () => {
         reset()
+        history.push('/')
     }
 
     useEffect(validateForm, [repo, buildCommand, timeToSynchronize])
@@ -81,7 +82,7 @@ export default function Settings(props) {
     ]
 
     return (
-        <main className="wrapper settings">
+        <div className="settings wrapper">
             { isFormSubmitted && <ProgressBar time={time}/>}
                     
             <header
@@ -125,6 +126,6 @@ export default function Settings(props) {
                 />
             </div>
 
-        </main>
+        </div>
     );
 }

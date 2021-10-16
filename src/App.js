@@ -2,7 +2,7 @@ import './App.scss';
 import BuildHistory from './pages/BuildHistory.jsx'
 import Settings from './pages/Settings.jsx'
 import StartScreen from './pages/StartScreen.jsx'
-import Footer from './сomponents/Footer.jsx'
+import MainLayout from './layouts/MainLayout.jsx'
 
 import {
   BrowserRouter as Router,
@@ -16,21 +16,20 @@ let isSetUp = localStorage.getItem('isSetUp')
 export default function App() {
   return (
     <>
-      <Router>
-        <div>
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/settings">
-              <Settings />
-            </Route>
-            <Route path="/">
-              { isSetUp ? <BuildHistory/> : <StartScreen/>}
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-      <Footer/>
+      <MainLayout>
+        <Router>
+            {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+            <Switch>
+              <Route path="/settings">
+                <Settings />
+              </Route>
+              <Route path="/">
+                { isSetUp ? <BuildHistory/> : <StartScreen/>}
+              </Route>
+            </Switch>
+        </Router>
+      </MainLayout>
     </>
   );
 }
