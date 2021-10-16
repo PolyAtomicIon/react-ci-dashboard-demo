@@ -2,6 +2,7 @@ import './StartScreen.scss';
 import CustomButton from '../сomponents/CustomButton.jsx'
 import settings from '../assets/icons/settings.png'
 import ciServerLogo from '../assets/ciServerLogo.png'
+import Header from '../сomponents/Header.jsx'
 import {Link} from "react-router-dom";
 
 let linkOptions = { color: 'inherit', textDecoration: 'inherit'}
@@ -10,21 +11,19 @@ function StartScreen(props) {
     return (
       <>
         <main className="wrapper start-screen">
-            
-            <header
-                className='header'
+
+            <Header 
+                title="School CI Server"
+                isTitleLight={true}
             >
-                <h1 className="repo-title">School CI Server</h1>
-                <div className="buttons">
-                    <Link to="/settings" style={linkOptions}>
-                        <CustomButton 
-                            title="Settings"
-                            backgroundColor='secondary'
-                            icon={settings}
-                        />
-                    </Link>
-                </div>
-            </header>
+                <Link to="/settings" style={linkOptions}>
+                    <CustomButton 
+                        title="Settings"
+                        backgroundColor='secondary'
+                        icon={settings}
+                    />
+                </Link>
+            </Header>
             
             <div className="centered-content">
                 <img src={ciServerLogo} alt="" />
