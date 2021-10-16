@@ -23,15 +23,18 @@ let commitStatus = {
 }
 
 function CommitCard(props) {
+    const runBuild = () => {
+        console.log('Run build')
+    }
     return ( 
-        <div className="commit" tabIndex="0">
+        <button className="commit" tabIndex="0" onClick={runBuild}>
             <div className="commit-status">
                 <img src={commitStatus[props.commitStatus || 'done'].icon} alt="" />
             </div>
             <div className="main-info">
                 <div className="commit-title">
                     <a 
-                        tabindex="-1"
+                        tabIndex="-1"
                         href={''} 
                         className={
                             `commit-id 
@@ -44,7 +47,7 @@ function CommitCard(props) {
                 <div className="commit-details">
                     <a 
                         href={''}  
-                        tabindex="-1"
+                        tabIndex="-1"
                     > 
                         <img src={codeCommit} alt="" />
                         {props.branchName} 
@@ -52,7 +55,7 @@ function CommitCard(props) {
                     </a>
                     <a 
                         href={''}
-                        tabindex="-1"
+                        tabIndex="-1"
                     > 
                         <img src={user} alt="" />
                         {props.author} 
@@ -61,15 +64,15 @@ function CommitCard(props) {
             </div>
             <div className="secondary-info">
                 <div className="secondary-info-item"> 
-                    <img src={calendar} alt="" srcset="" />
+                    <img src={calendar} alt="" />
                     {props.date}
                 </div>
                 <div className="secondary-info-item"> 
-                    <img src={stopwatch} alt="" srcset="" />
+                    <img src={stopwatch} alt="" />
                     {props.time}
                 </div>
             </div>
-        </div>
+        </button>
     );
   }
 

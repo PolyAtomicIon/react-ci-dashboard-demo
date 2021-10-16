@@ -46,7 +46,7 @@ function BuildHistory(props) {
 
             <CustomButton 
                 title="Show more"
-                style="secondary"
+                backgroundColor="secondary"
                 otherStyleOptions="sm-full-width"
             />
         </main>

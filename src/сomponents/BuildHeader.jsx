@@ -16,11 +16,11 @@ function BuildHeader(props) {
                 <CustomButton 
                     title="Run build"
                     icon={play}
-                    style='secondary'
+                    backgroundColor='secondary'
                 />
                 <Link to="/settings">
                     <CustomButton 
-                        style='secondary'
+                        backgroundColor='secondary'
                         icon={settings}
                     />
                 </Link>

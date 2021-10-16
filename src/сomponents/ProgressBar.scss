@@ -1,0 +1,81 @@
+@import '../global.scss';
+@for $i from 0 through 100 {
+    .progress progress[value="#{$i}"] {
+        &+.progress-value:before {
+            content: '#{$i}%'
+        }
+        &~.progress-bg .progress-bar {
+            width: $i * 1%
+        }
+    }
+}
+
+.progress {
+    font: 12px Arial, Tahoma, sans-serif;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 8px;
+    progress {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        left: -777px;
+    }
+}
+
+.progress-value {
+    color: #333;
+    display: block;
+    line-height: 21px;
+    text-align: center;
+}
+
+.progress-bg {
+    background: #e6e9ed;
+    position: relative;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+@-webkit-keyframes progress_bar {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -40px 0;
+    }
+}
+
+@-moz-keyframes progress_bar {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -40px 0;
+    }
+}
+
+@keyframes progress_bar {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -40px 0;
+    }
+}
+
+.progress-bar {
+    overflow: hidden;
+    background: $primary;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    -webkit-transition: width 1s linear;
+    -moz-transition: width 1s linear;
+    -ms-transition: width 1s linear;
+    transition: width 1s linear;
+}

@@ -9,9 +9,13 @@
     justify-content: space-between;
     background: #FFFFFF;
     box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 1px 1px rgba(67, 68, 69, 0.3);
+    border: none;
     border-radius: 6px;
     font-size: 16px;
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
         box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 2px 8px rgba(67, 68, 69, 0.3);
     }
     .commit-status {
@@ -31,12 +35,21 @@
         }
     }
     .main-info {
-        // background: coral;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         margin-left: 56px;
+        @media screen and (max-width: $sm-width) {
+            flex-direction: column;
+            padding-bottom: 8px;
+            margin-left: 0px;
+            justify-content: start;
+            align-items: flex-start;
+            width: 100%;
+            gap: 5px;
+        }
         .commit-title {
+            text-align: start;
             .commit-id {
                 text-decoration: none;
                 font-weight: bold;
@@ -74,18 +87,12 @@
                 gap: 5px;
             }
         }
-        @media screen and (max-width: $sm-width) {
-            flex-direction: column;
-            padding-bottom: 8px;
-            margin-left: 0px;
-            // justify-content: start;
-            gap: 5px;
-        }
     }
     .secondary-info {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        gap: 5px;
         // background: lightgreen;
         &-item {
             display: flex;

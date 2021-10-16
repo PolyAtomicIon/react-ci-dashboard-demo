@@ -18,7 +18,7 @@ function StartScreen(props) {
                 <div className="buttons">
                     <CustomButton 
                         title="Settings"
-                        style='secondary'
+                        backgroundColor='secondary'
                         icon={settings}
                     />
                 </div>
