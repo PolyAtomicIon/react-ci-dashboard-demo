@@ -17,8 +17,14 @@ function CustomButton(props) {
                     ? <Spinner/> 
                     : 
                     <>
-                        { props.icon && <img src={props.icon} alt="" /> }
-                        { props.title && <span className={props.icon ? 'title-with-icon' : 'title'}>{props.title}</span> }
+                        { props.icon && 
+                            <img src={props.icon} alt="" /> 
+                        }
+                        { props.title && 
+                            <span className={props.icon ? 'title-with-icon' : 'title'}>
+                                {props.title}
+                            </span> 
+                        }
                     </>
             } 
             

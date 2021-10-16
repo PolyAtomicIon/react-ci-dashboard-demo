@@ -23,11 +23,8 @@ let commitStatus = {
 }
 
 function CommitCard(props) {
-    const runBuild = () => {
-        console.log('Run build')
-    }
     return ( 
-        <button className="commit" tabIndex="0" onClick={runBuild}>
+        <button className="commit" tabIndex="0" onClick={() => props.onClick(props.id)}>
             <div className="commit-status">
                 <img src={commitStatus[props.commitStatus || 'done'].icon} alt="" />
             </div>

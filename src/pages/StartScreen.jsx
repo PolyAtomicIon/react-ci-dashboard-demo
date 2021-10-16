@@ -9,7 +9,6 @@ let linkOptions = { color: 'inherit', textDecoration: 'inherit'}
 
 function StartScreen(props) {
     return (
-      <>
         <main className="wrapper start-screen">
 
             <Header 
@@ -39,7 +38,6 @@ function StartScreen(props) {
             </div>
             
         </main>
-      </>
     );
   }
 

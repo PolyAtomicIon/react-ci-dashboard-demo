@@ -1,17 +1,17 @@
 import './BuildHistory.scss';
 import CommitCard from '../сomponents/CommitCard.jsx'
 import CustomButton from '../сomponents/CustomButton.jsx'
-
 import play from '../assets/icons/play.png'
 import settings from '../assets/icons/settings.png'
-
 import {Link} from "react-router-dom";
 import Header from '../сomponents/Header.jsx'
+import RunBuildModal from '../сomponents/RunBuildModal.jsx';
 
 import {useState} from 'react'
 
 function BuildHistory(props) {
 
+    const [modalIsOpen, setIsOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false)
 
     let demoCommitCardInfo = {
@@ -33,6 +33,15 @@ function BuildHistory(props) {
 
     const [commits, setCommits] = useState(demoCommits)
 
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
     const showMore = () => {
         setIsLoading(true)
         setTimeout(() => {
@@ -41,8 +50,12 @@ function BuildHistory(props) {
         }, 1000)
     }
 
+    const runBuild = (commitId) => {
+        console.log(commitId)
+        openModal()
+    }
+
     return (
-      <>
         <div className="wrapper build-history">
             <Header 
                 title='Awesomedfsdfrepo/oposdfsfsfsdfsdfsdfsdfsdfsdf'
@@ -52,6 +65,7 @@ function BuildHistory(props) {
                         title="Run build"
                         icon={play}
                         backgroundColor='secondary'
+                        onClick={runBuild}
                     />
                     <Link to="/settings">
                         <CustomButton 
@@ -75,6 +89,7 @@ function BuildHistory(props) {
                             date={card.date}
                             time={card.time} 
                             commitStatus={card.commitStatus}
+                            onClick={runBuild}
                         />
                     )
                 }
@@ -87,9 +102,16 @@ function BuildHistory(props) {
                 backgroundColor="secondary"
                 otherStyleOptions="sm-full-width"
             />
+
+            <RunBuildModal 
+                modalIsOpen={modalIsOpen}
+                closeModal={closeModal}
+                commits={commits.map(item => item.commitId)}
+            />
+
         </div>
-      </>
     );
   }
+
 
 export default BuildHistory;

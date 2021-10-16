@@ -1,0 +1,23 @@
+@import '../global.scss';
+.form {
+    margin: 12px 0;
+    box-sizing: border-box;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.suggestions {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: lightcoral;
+    .suggestion {
+        border-radius: none;
+        border: 1px solid $secondary;
+        background: #fff;
+        height: 32px;
+    }
+}
