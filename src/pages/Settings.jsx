@@ -49,7 +49,7 @@ export default function Settings(props) {
         {
             value: repo,
             setValue: setRepo,
-            type: 'text',
+            type: 'search',
             defaultValue: '',
             label: 'Github Repository',
             validator: (x) => {return x !== undefined && x !== ''},
@@ -57,7 +57,7 @@ export default function Settings(props) {
         {
             value: buildCommand,
             setValue: setBuildCommand,
-            type: 'text',
+            type: 'search',
             defaultValue: '',
             label: 'Build Command',
             validator: (x) => {return x !== undefined && x !== ''},
@@ -65,7 +65,7 @@ export default function Settings(props) {
         {
             value: branch,
             setValue: setBranch,
-            type: 'text',
+            type: 'search',
             defaultValue: '',
             label: 'Main branch',
             validator: () => true,

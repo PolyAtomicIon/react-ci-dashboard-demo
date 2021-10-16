@@ -3,6 +3,7 @@ label {
     display: flex;
     flex-direction: column;
     input[type=text],
+    input[type=search],
     input[type=number] {
         margin-top: 8px;
         box-sizing: border-box;
@@ -15,6 +16,15 @@ label {
         &.error {
             border-color: $red;
             outline-color: $red;
+        }
+        &::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
+            background-size: contain;
+            opacity: 0.4;
         }
     }
 }
