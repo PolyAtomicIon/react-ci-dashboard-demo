@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import './Settings.scss';
 import { useHistory } from "react-router-dom";
-import CustomButton from '../сomponents/CustomButton.js'
-import InputField from "../сomponents/InputField";
+import CustomButton from '../сomponents/CustomButton.jsx'
+import InputField from "../сomponents/InputField.jsx";
+import './Settings.scss';
 
 export default function Settings(props) {
     const [repo, setRepo] = useState('');
@@ -12,6 +12,13 @@ export default function Settings(props) {
 
     const [isValid, setIsValid] = useState(false)
     const history = useHistory()
+
+    const reset = () => {
+        setRepo('')
+        setBuildCommand('')
+        setBranch('')
+        setTimeToSynchronize(0)
+    }
 
     useEffect(() => {
         setIsValid(validateForm())
@@ -70,7 +77,7 @@ export default function Settings(props) {
     }
 
     const cancel = () => {
-        history.push("/")
+        reset()
     }
 
     return (
@@ -86,7 +93,6 @@ export default function Settings(props) {
             <p>Configure repository connection and synchronization settings.</p>
 
             <form className="form">
-            
                 {   
                     formFields.map((field) =>
                         <InputField 

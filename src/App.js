@@ -1,8 +1,8 @@
 import './App.scss';
-import BuildHistory from './pages/BuildHistory'
-import Settings from './pages/Settings'
-import StartScreen from './pages/StartScreen'
-import Footer from './сomponents/Footer'
+import BuildHistory from './pages/BuildHistory.jsx'
+import Settings from './pages/Settings.jsx'
+import StartScreen from './pages/StartScreen.jsx'
+import Footer from './сomponents/Footer.jsx'
 
 import {
   BrowserRouter as Router,

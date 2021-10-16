@@ -1,5 +1,5 @@
 import './StartScreen.scss';
-import CustomButton from '../сomponents/CustomButton.js'
+import CustomButton from '../сomponents/CustomButton.jsx'
 import settings from '../assets/icons/settings.png'
 import ciServerLogo from '../assets/ciServerLogo.png'
 import {Link} from "react-router-dom";

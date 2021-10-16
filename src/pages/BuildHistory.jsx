@@ -1,8 +1,8 @@
 import './BuildHistory.scss';
-import CommitCard from '../сomponents/CommitCard.js'
-import CustomButton from '../сomponents/CustomButton.js'
+import CommitCard from '../сomponents/CommitCard.jsx'
+import CustomButton from '../сomponents/CustomButton.jsx'
 
-import BuildHeader from '../сomponents/BuildHeader.js'
+import BuildHeader from '../сomponents/BuildHeader.jsx'
 
 function BuildHistory(props) {
     return (

@@ -24,13 +24,14 @@ let commitStatus = {
 
 function CommitCard(props) {
     return ( 
-        <div className="commit">
+        <div className="commit" tabIndex="0">
             <div className="commit-status">
                 <img src={commitStatus[props.commitStatus || 'done'].icon} alt="" />
             </div>
             <div className="main-info">
                 <div className="commit-title">
                     <a 
+                        tabindex="-1"
                         href={''} 
                         className={
                             `commit-id 
@@ -41,12 +42,18 @@ function CommitCard(props) {
                     {props.title}
                 </div>
                 <div className="commit-details">
-                    <a href={''}> 
+                    <a 
+                        href={''}  
+                        tabindex="-1"
+                    > 
                         <img src={codeCommit} alt="" />
                         {props.branchName} 
                         <span className="text-grey ml-1"> {props.commitId} </span> 
                     </a>
-                    <a href={''}> 
+                    <a 
+                        href={''}
+                        tabindex="-1"
+                    > 
                         <img src={user} alt="" />
                         {props.author} 
                     </a>
