@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import CustomButton from '../сomponents/CustomButton.jsx'
 import ProgressBar from '../сomponents/ProgressBar.jsx'
+import Header from '../сomponents/Header.jsx'
 import InputField from "../сomponents/InputField.jsx";
 import './Settings.scss';
 
@@ -85,14 +86,10 @@ export default function Settings(props) {
         <div className="settings wrapper">
             { isFormSubmitted && <ProgressBar time={time}/>}
                     
-            <header
-                className='header'
-            >
-                School CI Server
-            </header>
+            <Header title="School CI Server" isTitleLight={true}/>
 
-            <h3>Settings</h3>
-            <p>Configure repository connection and synchronization settings.</p>
+            <h3 >Settings</h3>
+            <p className="text-grey mt-1">Configure repository connection and synchronization settings.</p>
             
 
             <form className="form">

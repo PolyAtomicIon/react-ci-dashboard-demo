@@ -1,7 +1,13 @@
 import './BuildHistory.scss';
 import CommitCard from '../сomponents/CommitCard.jsx'
 import CustomButton from '../сomponents/CustomButton.jsx'
-import BuildHeader from '../сomponents/BuildHeader.jsx'
+
+import play from '../assets/icons/play.png'
+import settings from '../assets/icons/settings.png'
+
+import {Link} from "react-router-dom";
+import Header from '../сomponents/Header.jsx'
+
 import {useState} from 'react'
 
 function BuildHistory(props) {
@@ -38,9 +44,23 @@ function BuildHistory(props) {
     return (
       <>
         <div className="wrapper build-history">
-            <BuildHeader 
+            <Header 
                 title='Awesomedfsdfrepo/oposdfsfsfsdfsdfsdfsdfsdfsdf'
-            />
+            >
+                <>
+                    <CustomButton 
+                        title="Run build"
+                        icon={play}
+                        backgroundColor='secondary'
+                    />
+                    <Link to="/settings">
+                        <CustomButton 
+                            backgroundColor='secondary'
+                            icon={settings}
+                        />
+                    </Link>
+                </>
+            </Header>
             
             <div className="cards">
                 {

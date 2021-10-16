@@ -29,6 +29,16 @@
     font-feature-settings: 'liga', 'kern'
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
 $sm-width: 576px;
 $primary: #F2C200;
 $secondary: #b2b2b2;
@@ -61,6 +71,11 @@ $light-bg: #F0F2F3;
     &r {
         &-1 {
             margin-right: 5px;
+        }
+    }
+    &t {
+        &-1 {
+            margin-top: 5px;
         }
     }
 }

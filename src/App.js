@@ -11,8 +11,8 @@ import {
 } from "react-router-dom";
 import Footer from './сomponents/Footer';
 
-// let isSetUp = localStorage.getItem('isSetUp')
-let isSetUp = false
+let isSetUp = localStorage.getItem('isSetUp')
+// let isSetUp = false
 
 const footerLinks = [
   {

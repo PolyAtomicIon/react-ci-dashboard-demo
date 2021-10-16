@@ -1,19 +1,30 @@
-.build-header {
+@import '../global.scss';
+.header {
     padding: 8px 0;
     width: 100%;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     // align-items: center;
-    .repo-title {
+    .title {
         margin: 0;
         display: inline-block;
         word-break: break-word;
         overflow-wrap: break-word;
         padding-right: 12px;
     }
+    .secondary-title {
+        font-size: 24px;
+        color: $secondary;
+        margin-bottom: 12px;
+    }
     .buttons {
         display: flex;
+        justify-content: flex-end;
         gap: 8px;
+        min-width: 160px;
+        @media screen and (max-width: $sm-width) {
+            min-width: auto;
+        }
     }
 }
