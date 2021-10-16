@@ -3,7 +3,6 @@ import InputField from './InputField.jsx'
 import CustomButton from './CustomButton.jsx'
 import Modal from 'react-modal';
 import {useState, useRef} from 'react'
-import { set } from 'date-fns';
 import { createPortal } from 'react-dom';
 
 const customStyles = {
@@ -28,8 +27,27 @@ const customStyles = {
 export default function RunBuildModal(props) {
 
     const [commitHash, setCommitHash] = useState('')
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false)
+    const [isSuggestionsActive, setIsSuggestionsActive] = useState(true)
+
+    const initiateModal = () => {
+        commitHashInputField.current.focus()
+        setCommitHash('')
+        setIsFormSubmitted(false)
+        setIsSuggestionsActive(true)
+    }
+
+    const inputHandler = (value) => {
+        setCommitHash(value)
+        setIsSuggestionsActive(true)
+    }
+
     const runBuild = () => {
-        console.log("RUN BUILD")
+        setIsFormSubmitted(true)
+        setTimeout(() => {
+            props.closeModal()
+            props.onRunBuilt()
+        }, 1000)
     }
     const commitHashInputField = useRef();
       
@@ -43,12 +61,13 @@ export default function RunBuildModal(props) {
   
     const onSuggestHandler = (value) => {
         setCommitHash(value)
+        setIsSuggestionsActive(false)
     }
 
     const Suggestions = () => {
         
-        let parent = commitHashInputField.current?.parentElement.parentElement
         let verticalOffset = 44
+        let parent = commitHashInputField.current?.parentElement.parentElement
         parent = parent?.getBoundingClientRect()
         let [x, y, width] = [parent?.x, parent?.y, parent?.width]
 
@@ -76,7 +95,7 @@ export default function RunBuildModal(props) {
     return ( 
         <Modal
             isOpen={props.modalIsOpen}
-            onAfterOpen={() => commitHashInputField.current.focus()}
+            onAfterOpen={initiateModal}
             onRequestClose={props.closeModal}
             style={customStyles}
             contentLabel="Example Modal"
@@ -84,18 +103,16 @@ export default function RunBuildModal(props) {
             <h3 >New build</h3>
             <p className="text-grey mt-1">Enter the commit hash which you want to build.</p>
             
-
             <form className="form">
                 <InputField 
                     parentRef={commitHashInputField}
                     value={commitHash}
-                    onChange={setCommitHash}
+                    onChange={inputHandler}
                     validator={() => !!commitHash}  
                     placeholder='Commit hash'      
                     type='search'
                 />
-                <Suggestions 
-                /> 
+                { isSuggestionsActive && <Suggestions /> }
             </form>
             
             <div className="buttons">
@@ -103,14 +120,14 @@ export default function RunBuildModal(props) {
                     title='Run build'
                     disabled={!commitHash}
                     onClick={runBuild}
-                    // loading={isFormSubmitted}
+                    loading={isFormSubmitted}
                     otherStyleOptions="sm-full-width"
                 />
                 <CustomButton 
                     title='Cancel'
                     onClick={props.closeModal}
                     backgroundColor='secondary'
-                    otherStyleOptions="sm-full-width"
+                    otherStyleOptions="sm-full когда задача стоит в-width"
                 />
             </div>
 

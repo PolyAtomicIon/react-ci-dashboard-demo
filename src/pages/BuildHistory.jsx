@@ -107,6 +107,7 @@ function BuildHistory(props) {
                 modalIsOpen={modalIsOpen}
                 closeModal={closeModal}
                 commits={commits.map(item => item.commitId)}
+                onRunBuilt={showMore}
             />
 
         </div>
