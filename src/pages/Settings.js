@@ -1,32 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Settings.scss';
 import { useHistory } from "react-router-dom";
 import CustomButton from '../сomponents/CustomButton.js'
+import InputField from "../сomponents/InputField";
 
 export default function Settings(props) {
     const [repo, setRepo] = useState('');
-    const [bcommand, setBcommand] = useState('');
+    const [buildCommand, setBuildCommand] = useState('');
     const [branch, setBranch] = useState('');
     const [timeToSynchronize, setTimeToSynchronize] = useState(0);
 
-    const [isFormValid, setIsFormValid] = useState(false);
-
+    const [isValid, setIsValid] = useState(false)
     const history = useHistory()
 
+    useEffect(() => {
+        setIsValid(validateForm())
+    }, [repo, buildCommand, timeToSynchronize])
+
     const isNumberValid = (number) => {
+        number = Number(number)
         if( number <= 0 ) return false
         if( !Number.isInteger(number) ) return false
         return true
     }
 
-    const validate = (evt) => {
-        evt.preventDefault();
-    
-        setIsFormValid(!!repo && !!bcommand && isNumberValid(+timeToSynchronize))
-        if( !isFormValid ){
-            return
-        }   
+    const validateForm = (evt) => {
+        return !!repo && !!buildCommand && isNumberValid(+timeToSynchronize)
     }
+
+    const formFields = [
+        {
+            value: repo,
+            setValue: setRepo,
+            type: 'text',
+            defaultValue: '',
+            label: 'Github Repository',
+            validator: (x) => {return x !== undefined && x !== ''},
+        },
+        {
+            value: buildCommand,
+            setValue: setBuildCommand,
+            type: 'text',
+            defaultValue: '',
+            label: 'Build Command',
+            validator: (x) => {return x !== undefined && x !== ''},
+        },
+        {
+            value: branch,
+            setValue: setBranch,
+            type: 'text',
+            defaultValue: '',
+            label: 'Main branch',
+            validator: () => true,
+        },
+        {
+            value: timeToSynchronize,
+            setValue: setTimeToSynchronize,
+            type: 'number',
+            defaultValue: 0,
+            label: 'Synchronize every',
+            validator: isNumberValid,
+        }
+    ]
 
     const submitForm = () => {
         console.log("SAVED");
@@ -39,67 +74,47 @@ export default function Settings(props) {
     }
 
     return (
-    <main className="wrapper settings">
-                
-        <header
-            className='header'
-        >
-            School CI Server
-        </header>
+        <main className="wrapper settings">
+                    
+            <header
+                className='header'
+            >
+                School CI Server
+            </header>
 
-        <h3>Settings</h3>
-        <p>Configure repository connection and synchronization settings.</p>
+            <h3>Settings</h3>
+            <p>Configure repository connection and synchronization settings.</p>
 
-        <form className="form">
-            <label>
-                GitHub repository *
-                <input 
-                    type="text"
-                    value={repo}
-                    onChange={(event) => {setRepo(event.target.value); validate(event)} } 
+            <form className="form">
+            
+                {   
+                    formFields.map((field) =>
+                        <InputField 
+                            value={field.value}
+                            onChange={field.setValue}
+                            validator={field.validator}        
+                            label={field.label}
+                            type={field.type}
+                        />
+                    )
+                }
+            </form>
+            
+            <div className="buttons">
+                <CustomButton 
+                    title='Save'
+                    disabled={!isValid}
+                    onClick={submitForm}
+                    otherStyleOptions="sm-full-width"
                 />
-            </label>
-            <label>
-                Build Command *
-                <input 
-                    type="text" 
-                    value={bcommand}
-                    onChange={(event) => {setBcommand(event.target.value); validate(event)} } 
+                <CustomButton 
+                    title='Cancel'
+                    onClick={cancel}
+                    style='secondary'
+                    otherStyleOptions="sm-full-width"
                 />
-            </label>
-            <label>
-                Main Branch
-                <input 
-                    type="text" 
-                    value={branch}
-                    onChange={(event) => {setBranch(event.target.value); validate(event)} } 
-                />
-            </label>
-            <label>
-                Synchorinzize every:
-                <input 
-                    type="number" 
-                    value={timeToSynchronize}
-                    onChange={(event) => {setTimeToSynchronize(event.target.value); validate(event)} } 
-                />
-            </label>
-        </form>
-        
-        <div className="buttons">
-            <CustomButton 
-                title='Save'
-                disabled={!isFormValid}
-                eventToCall={submitForm}
-                otherStyleOptions="sm-full-width"
-            />
-            <CustomButton 
-                title='Cancel'
-                eventToCall={cancel}
-                style='secondary'
-                otherStyleOptions="sm-full-width"
-            />
-        </div>
+            </div>
 
-    </main>
+        </main>
     );
 }
