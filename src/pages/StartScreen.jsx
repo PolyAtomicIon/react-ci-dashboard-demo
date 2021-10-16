@@ -16,11 +16,13 @@ function StartScreen(props) {
             >
                 <h1 className="repo-title">School CI Server</h1>
                 <div className="buttons">
-                    <CustomButton 
-                        title="Settings"
-                        backgroundColor='secondary'
-                        icon={settings}
-                    />
+                    <Link to="/settings" style={linkOptions}>
+                        <CustomButton 
+                            title="Settings"
+                            backgroundColor='secondary'
+                            icon={settings}
+                        />
+                    </Link>
                 </div>
             </header>
             

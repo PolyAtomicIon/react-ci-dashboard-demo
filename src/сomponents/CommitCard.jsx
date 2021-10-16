@@ -35,7 +35,7 @@ function CommitCard(props) {
                 <div className="commit-title">
                     <a 
                         tabIndex="-1"
-                        href={''} 
+                        href='#' 
                         className={
                             `commit-id 
                             text-${commitStatus[props.commitStatus || 'done'].color}
@@ -46,7 +46,7 @@ function CommitCard(props) {
                 </div>
                 <div className="commit-details">
                     <a 
-                        href={''}  
+                        href='#' 
                         tabIndex="-1"
                     > 
                         <img src={codeCommit} alt="" />
@@ -54,7 +54,7 @@ function CommitCard(props) {
                         <span className="text-grey ml-1"> {props.commitId} </span> 
                     </a>
                     <a 
-                        href={''}
+                        href='#'
                         tabIndex="-1"
                     > 
                         <img src={user} alt="" />

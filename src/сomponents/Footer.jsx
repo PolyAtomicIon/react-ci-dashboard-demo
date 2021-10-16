@@ -4,12 +4,17 @@ function Footer(props) {
     return ( 
         <footer className="footer">
             <div className="links">
-                <a href="">Support</a>
-                <a href="">Learning</a>
-                <a href="">Русская версия</a>
+                {
+                    props.footerLinks.map((item, index) =>
+                        <a 
+                            key={index}
+                            href={item.url}
+                        > {item.title} </a>
+                    )
+                }
             </div>
             <div className="brand">
-                @2020 Your Name
+                {props.copyright}
             </div>
         </footer>
     );

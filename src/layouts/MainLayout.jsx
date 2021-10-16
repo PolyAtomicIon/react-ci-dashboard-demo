@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from "react";
 import './MainLayout.scss';
-import Footer from '../сomponents/Footer.jsx'
-
 export default function MainLayout (props) {
   
     return (
@@ -11,7 +8,7 @@ export default function MainLayout (props) {
             <main>
                 {props.children}
             </main>
-            <Footer/>
+            {props.footer}
         </div>
     );
 }
